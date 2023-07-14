@@ -6,7 +6,7 @@
  *
  * Return: 0
  */
-ZZ
+
 int main(void)
 {
 /*Declarations*/
