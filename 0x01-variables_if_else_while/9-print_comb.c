@@ -1,3 +1,12 @@
+#include <stdio.h>
+
+
+/**
+ * main - prints the digits of the alphabets
+ *
+ * Return: 0
+ */
+ZZ
 int main(void)
 {
 /*Declarations*/
