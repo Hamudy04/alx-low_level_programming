@@ -1,24 +1,14 @@
 #include "main.h"
-
 /**
- * _isalpha - checks lowercase/uppercase
- * @c: An input character
- * Description: function returns 1 if the character is a
- * letter, lowercase or uppercase.
- * Return: 1 or 0 in otherwise.
+ * _isalpha - Checks for alphabetic order
+ *
+ * @c: alpabet to check for
+ *
+ * Return: 1 if c is a letter, 0 otherwise
  */
 int _isalpha(int c)
 {
-	char lower, upper;
-	int isletter = 0;
+	return ((c >= 'a' && c <= 'z') || (c >= 'A' && c <= 'Z'));
 
-	for (lower = 'a'; lower <= 'z'; lower++)
-	{
-		for (upper = 'A'; upper <= 'Z'; upper++)
-		{
-			if (c == lower || c == upper)
-				isletter = 1;
-		}
-	}
-	return (isletter);
 }
+
