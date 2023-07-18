@@ -1,12 +1,9 @@
 #include "main.h"
 
 /**
- * main - Prints _putchar followwed by \n
- *
- *
- * Return: 0 on success
+ * main - Print _putchar
+ * Return: Always 0
  */
-
 int main(void)
 {
 	_putchar('_');
