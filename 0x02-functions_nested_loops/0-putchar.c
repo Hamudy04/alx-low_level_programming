@@ -1,19 +1,21 @@
-#include <stdio.h>  /* Include the necessary header file */
+#include "main.h"
 
-int _putchar(char c) {
-    /* Your implementation of _putchar goes here
-       For example, if you are using it to print characters to the console: */
-    return putchar(c);
-}
+/**
+ * main -  prints _putchar, followed by a new line
+ * Return: Always 0 (Success)
+ */
+int main(void)
+{
+	_putchar('_');
+	_putchar('p');
+	_putchar('u');
+	_putchar('t');
+	_putchar('c');
+	_putchar('h');
+	_putchar('a');
+	_putchar('r');
+	_putchar('\n');
 
-int main() {
-    _putchar('H');
-    _putchar('e');
-    _putchar('l');
-    _putchar('l');
-    _putchar('o');
-    _putchar('\n');  /* Printing a newline character */
-
-    return 0;
+	return (0);
 }
 
