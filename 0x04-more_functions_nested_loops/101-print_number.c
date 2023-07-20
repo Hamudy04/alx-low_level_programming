@@ -1,38 +1,36 @@
 #include "main.h"
+void print_integer(int m);
 
 /**
- * print_integer - A function to print an integer.
+ * print_number - a function that prints an integer.
  * @n: An input integer
  * Return: Nothing
  */
-void print_integer(int n)
+void print_number(int n)
 {
 	if (n == 0)
-	{
 		_putchar('0');
-		return;
-	}
-
-	if (n < 0)
+	else if (n < 0)
 	{
 		_putchar('-');
-		n = -n; // Make n positive for further processing
+		print_integer(n * -1);
 	}
-
-	int divisor = 1000000000;
-	int leading_zero = 1; // To skip leading zeros
-
-	while (divisor >= 1)
-	{
-		int digit = n / divisor;
-		n %= divisor;
-		divisor /= 10;
-
-		if (digit != 0 || !leading_zero)
-		{
-			_putchar(digit + '0');
-			leading_zero = 0;
-		}
-	}
+	else
+		print_integer(n);
 }
 
+/**
+ * print_integer - A function to priting n
+ * @m: an input unsigned integer
+ * Return: Nothing
+ */
+void print_integer(int m)
+{
+	int i = 1000000000;
+
+	for (; i >= 1; i /= 10)
+		if (m / i != 0)
+		{
+			_putchar((m / i) % 10 + '0');
+		}
+}
