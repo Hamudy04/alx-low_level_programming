@@ -1,36 +1,72 @@
 #include "main.h"
-void print_integer(int m);
 
 /**
- * print_number - a function that prints an integer.
- * @n: An input integer
- * Return: Nothing
+ * print_number - Prints an integer
+ * @n: The number to be printed
+ *
+ * Return: void
  */
 void print_number(int n)
 {
-	if (n == 0)
-		_putchar('0');
-	else if (n < 0)
+	int digit, divisor;
+	int base = 9;
+	int start = 0;
+	int isNegative = 0;
+	int isMinInt = 0;
+
+	if (n < 0)
 	{
-		_putchar('-');
-		print_integer(n * -1);
+		isNegative = 1;
+		n = n * -1;
+		isMinInt = n < 0 ? 1 : 0;
+		n = n < 0 ? (n + 1) * -1 : n;
 	}
-	else
-		print_integer(n);
+	while (base >= 0)
+	{
+		divisor = to_power(10, base);
+		digit = ((n / divisor) % 10);
+		if (start == 0 && digit == 0)
+		{
+			base--;
+		}
+		else if (start == 0 && digit != 0)
+		{
+			base--;
+			start = 1;
+			if (isNegative == 1)
+				_putchar('-');
+			_putchar(digit + '0');
+		}
+		else
+		{
+			if (isMinInt && divisor == 1)
+				_putchar((digit + 1) + '0');
+			else
+				_putchar(digit + '0');
+			base--;
+		}
+	}
+	if (divisor == 1 && start == 0)
+		_putchar(48);
 }
 
 /**
- * print_integer - A function to priting n
- * @m: an input unsigned integer
- * Return: Nothing
+ * to_power - Computes the exponential of a number
+ * @n: The number
+ * @base: The power that n is raised to
+ *
+ * Return: The computed power
  */
-void print_integer(int m)
-{
-	int i = 1000000000;
 
-	for (; i >= 1; i /= 10)
-		if (m / i != 0)
-		{
-			_putchar((m / i) % 10 + '0');
-		}
+int to_power(int n, int base)
+{
+	int i = 0;
+	int exp = 1;
+
+	while (i < base)
+	{
+		exp *= n;
+		i++;
+	}
+	return (exp);
 }
