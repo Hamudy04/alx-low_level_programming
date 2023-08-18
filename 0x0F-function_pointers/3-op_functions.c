@@ -13,7 +13,12 @@ int op_add(int a, int b)
 	return (a + b);
 }
 
-
+/**
+ * op_sub - subtraction
+ * @a: minuend
+ * @b: sustrnd
+ * Return: result
+ */
 
 int op_sub(int a, int b)
 {
@@ -49,7 +54,12 @@ int op_div(int a, int b)
 	exit(100);
 }
 
-
+/**
+ * op_mod - modulo
+ * @a: vaper 1
+ * @b: vaper 2
+ * Return: result
+ */
 
 int op_mod(int a, int b)
 {
