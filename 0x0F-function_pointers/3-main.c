@@ -1,12 +1,17 @@
-#include <stdlib.h>
-#include <stdio.h>
 #include "3-calc.h"
 
+/**
+ * main - the calculation is completed here
+ * @argc:arguement count
+ * @argv:arguement vector
+ *
+ * Return: 0 on success
+ */
 
-
-int main(int argc, char *argv[])
+int main(int argc, char **argv)
 {
-	int R;
+	int num1, num2;
+	char *operator;
 
 	if (argc != 4)
 	{
@@ -14,8 +19,21 @@ int main(int argc, char *argv[])
 		exit(98);
 	}
 
-	R = (*get_op_func(argv[2]))(atoi(argv[1]), atoi(argv[3]));
-	printf("%d\n", R);
+	num1 = atoi(argv[1]);
+	num2 = atoi(argv[3]);
+	operator = argv[2];
 
+	if (!get_op_func(operator) || operator[1] != '\0')
+	{
+		printf("Error\n");
+		exit(99);
+	}
+	if (!num2 && (argv[2][0] == '/' || argv[2][0] == '%'))
+	{
+		printf("Error\n");
+		exit(100);
+	}
+
+	printf("%d\n", get_op_func(operator)(num1, num2));
 	return (0);
 }
